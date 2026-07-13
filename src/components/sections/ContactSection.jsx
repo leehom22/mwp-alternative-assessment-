@@ -157,7 +157,7 @@ const ContactSection = () => {
                 <div className="social-links">
 
                   <a
-                    href="#"
+                    href="https://github.com/LeeXuanYing"
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -166,7 +166,7 @@ const ContactSection = () => {
                   </a>
 
                   <a
-                    href="#"
+                    href="https://www.linkedin.com/in/xuan-ying-lee-176552217/"
                     target="_blank"
                     rel="noreferrer"
                   >
