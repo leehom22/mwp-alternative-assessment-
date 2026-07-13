@@ -182,7 +182,7 @@ const ContactSection = () => {
 
               <div className="member-card">
 
-                <h3>Darshni Prakash</h3>
+                <h3>Darshni</h3>
 
                 <span className="member-role">
                   Multimedia & Content
