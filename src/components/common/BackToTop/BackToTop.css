@@ -1,0 +1,24 @@
+.back-top {
+
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 55px;
+    height: 55px;
+    border: none;
+    border-radius: 50%;
+    background: #6366F1;
+    color: white;
+    cursor: pointer;
+    font-size: 22px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, .3);
+    transition: .3s;
+    z-index: 999;
+
+}
+
+.back-top:hover {
+
+    transform: translateY(-5px);
+
+}
