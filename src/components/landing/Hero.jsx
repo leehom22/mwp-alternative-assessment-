@@ -33,7 +33,12 @@ function Hero() {
                     3D web experience powered by Three.js.
                 </p>
 
-                <button className="explore-btn">
+                <button className="explore-btn" onClick={()=>{
+                    document.getElementById("about").scrollIntoView({
+                        behavior:'smooth',
+                        block:'start'
+                    })
+                }}>
                     Explore Portfolio
                 </button>
 
