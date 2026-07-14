@@ -35,7 +35,7 @@ export default function EyeFollowMouse() {
     scene.add(rimLight);
 
     // ---------- Eyeball group ----------
-    const eyeGroup = new THREE.Group();
+    const eyeGroup = new THREE.Group();     
     scene.add(eyeGroup);
 
     // Sclera (white of the eye)
@@ -121,7 +121,7 @@ export default function EyeFollowMouse() {
       frameId = requestAnimationFrame(animate);
       const delta = clock.getDelta();
 
-      targetRotation.x += (mouse.y * MAX_PITCH - targetRotation.x) * 0.08;
+      targetRotation.x += (-mouse.y * MAX_PITCH - targetRotation.x) * 0.08;
       targetRotation.y += (mouse.x * MAX_YAW - targetRotation.y) * 0.08;
 
       irisGroup.rotation.x = targetRotation.x;
@@ -196,8 +196,8 @@ export default function EyeFollowMouse() {
     <div
       ref={mountRef}
       style={{
-        width: "100%",
-        height: "100vh",
+        width: "400px",
+        height: "400px",
       }}
     />
   );
