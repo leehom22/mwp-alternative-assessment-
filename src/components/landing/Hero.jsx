@@ -1,5 +1,6 @@
 import "./Hero.css";
 import { motion } from "framer-motion";
+import TDobject from "./TDobject";
 
 function Hero() {
     return (
@@ -55,11 +56,7 @@ function Hero() {
 
                 <div className="scene-placeholder">
 
-                    <p>3D Scene</p>
-
-                    <small>
-                        (Three.js Canvas will be integrated here)
-                    </small>
+                    <TDobject/>
 
                 </div>
 
@@ -67,6 +64,7 @@ function Hero() {
 
         </section>
     );
+    
 }
 
 export default Hero;
