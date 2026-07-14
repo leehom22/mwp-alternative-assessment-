@@ -1,8 +1,0 @@
-Deploy Project in Vercel 
-
-1. vercel login
-2. vercel
-
-3. vercel --prod
-
-
