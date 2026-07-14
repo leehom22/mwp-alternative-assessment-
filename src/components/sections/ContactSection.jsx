@@ -30,7 +30,7 @@ const ContactSection = () => {
 
     emailjs
       .sendForm(
-        "service_wufg5vd",
+        "service_sxsm60h",
         "template_u4pnt4a",
         form.current,
         "_O4fj5_zeT7PETexp"
@@ -185,7 +185,7 @@ const ContactSection = () => {
                 <h3>Darshni</h3>
 
                 <span className="member-role">
-                  Multimedia & Content
+                  Backend & Deployment
                 </span>
 
                 <div className="contact-card">
@@ -235,7 +235,7 @@ const ContactSection = () => {
                 <h3>Nicholas</h3>
 
                 <span className="member-role">
-                  Backend & Deployment
+                  Multimedia & Content
                 </span>
 
                 <div className="contact-card">
