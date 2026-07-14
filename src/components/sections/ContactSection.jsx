@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import Reveal from '../common/Reveal';
 import SectionTitle from '../common/SectionTitle/SectionTitle';
+import { FaEnvelope,FaGithub,FaLinkedin } from "react-icons/fa";
+import "../../styles/contact.css"
 
 const ContactSection = () => {
 
