@@ -1,16 +1,6 @@
-import React, { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
-import Reveal from "../common/Reveal";
-import SectionTitle from "../common/SectionTitle/SectionTitle";
-import "../../styles/contact.css";
-
-import {
-  FaGithub,
-  FaLinkedin,
-  FaEnvelope,
-  FaCheckCircle,
-  FaExclamationCircle,
-} from "react-icons/fa";
+import React from 'react'
+import Reveal from '../common/Reveal';
+import SectionTitle from '../common/SectionTitle/SectionTitle';
 
 const ContactSection = () => {
 
@@ -354,4 +344,4 @@ const ContactSection = () => {
   );
 };
 
-export default ContactSection;
+export default ContactSection

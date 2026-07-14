@@ -1,4 +1,3 @@
-import HeroObject from "../threeD/HeroObject";
 import "./Hero.css";
 import { motion } from "framer-motion";
 
@@ -56,7 +55,11 @@ function Hero() {
 
                 <div className="scene-placeholder">
 
-                   <HeroObject/>
+                    <p>3D Scene</p>
+
+                    <small>
+                        (Three.js Canvas will be integrated here)
+                    </small>
 
                 </div>
 
