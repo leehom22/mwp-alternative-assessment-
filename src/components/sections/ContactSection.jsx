@@ -42,7 +42,7 @@ const ContactSection = () => {
         setTimeout(() => setSuccess(""), 5000);
       })
       .catch(() => {
-        setSending(false);
+        setSending(false)
         setError("Something went wrong. Please try again.");
         setTimeout(() => setError(""), 5000);
       });

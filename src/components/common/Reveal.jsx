@@ -27,7 +27,7 @@ function Reveal({ children }) {
             {children}
         </motion.div>
 
-    );
+    )
 
 }
 
