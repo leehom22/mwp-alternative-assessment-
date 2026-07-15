@@ -1,345 +1,275 @@
-.project-wrapper{
+.project-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
 
-    width:100%;
+/* --- CLEANED UP MEMBER NAVIGATION --- */
+.member-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 35px;
+}
 
+.member-name-display {
+    color: white;
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: 0.5px;
+    min-width: 250px;
+    text-align: center;
+}
+
+.member-nav-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+}
+
+.member-nav-btn:hover {
+    color: white;
+    transform: scale(1.2);
+}
+
+/* --- INTEGRATED SLIDER WRAPPER --- */
+.project-slider-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+/* Elegant Floating Chevrons */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(40, 41, 98, 0.6);
+    backdrop-filter: blur(8px);
+    color: white;
+    font-size: 32px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.left-arrow { left: -25px; }
+.right-arrow { right: -25px; }
+
+.slider-arrow:hover {
+    background: white;
+    color: #282962;
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* --- MODERNIZED PROJECT CARD --- */
+.project-card {
+    display: grid;
+    /* minmax(0, 1fr) prevents columns from expanding past their computed width */
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: 40px;
+    background: #282962;
+    border-radius: 24px;
+    padding: 45px;
+    min-height: 400px;
+    width: 100%;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    align-items: center; /* Vertically centers the content side-by-side */
+}
+
+/* --- INTERNAL DYNAMIC COUNTER BADGE --- */
+.project-counter-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    color: #a3a6ff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+}
+
+.project-info {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.project-info h2 {
+    font-size: 32px;
+    margin: 0 0 16px 0;
+    line-height: 1.2;
+}
+
+.project-info p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #d1d4f9;
+    margin: 0 0 24px 0;
+}
+
+.project-info h4 {
+    font-size: 18px;
+    margin: 0 0 12px 0;
+    color: #fff;
+}
+
+.project-info ul {
+    padding-left: 20px;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Cleans up technology lists into neat columns */
+    gap: 8px;
+}
+
+.project-info li {
+    font-size: 15px;
+    color: #babcff;
+}
+
+/* --- IMAGE COMPONENT --- */
+.project-image {
+    display: flex;
+    flex-direction: column; /* Stacks multiple project screenshots vertically */
+    gap: 20px;
+    width: 100%;
+    max-height: 550px; /* Caps total vertical area for images */
+    overflow-y: auto;  /* Adds a smooth internal scroll if there are too many screenshots */
+    padding-right: 5px; /* Tiny buffer for the scrollbar layout */
+}
+
+.project-image::-webkit-scrollbar {
+    width: 6px;
+}
+.project-image::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+.project-image img {
+    width: 100%;
+    max-width: 100%; /* Rigidly locks image width to the column boundary */
+    height: auto;
+    aspect-ratio: 16 / 10;
+    object-fit: contain; /* Keeps your dashboard diagrams clear without awkward cropping */
+    background: rgba(0, 0, 0, 0.15); /* Subtle dark backing behind screenshots */
+    border-radius: 16px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-image img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
 }
 
 
-/* MEMBER AND PROJECT NAVIGATION */
-
-.member-switch,
-.project-switch{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:25px;
-
-    margin:15px;
-
+/* --- RESPONSIVE LAYOUT RESPONSES --- */
+@media(max-width: 1024px) {
+    .left-arrow { left: 15px; }
+    .right-arrow { right: 15px; }
+    .project-card { padding: 40px; }
 }
 
-
-
-.member-switch h2,
-.project-switch h3{
-
-    color:white;
-
-    margin:0;
-
-}
-
-
-
-
-
-/* WHITE CIRCLE BUTTON */
-
-.member-switch button,
-.project-switch button{
-
-    width:45px;
-
-    height:45px;
-
-    border-radius:50%;
-
-    border:none;
-
-    background:white;
-
-    color:#282962;
-
-    font-size:28px;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    transition:0.3s;
-
-    box-shadow:
-    0 5px 15px rgba(0,0,0,0.25);
-
-}
-
-
-
-.member-switch button:hover,
-.project-switch button:hover{
-
-    transform:scale(1.15);
-
-    background:#e6e6ff;
-
-}
-
-
-
-
-
-
-
-/* PROJECT CARD */
-
-.project-card{
-
-    display:grid;
-
-    grid-template-columns:0.75fr 1fr;
-
-    gap:40px;
-
-    background:#282962;
-
-    border-radius:20px;
-
-    padding:40px;
-
-    min-height:350px;
-
-    box-shadow:
-    0 10px 30px rgba(0,0,0,0.2);
-
-}
-
-/* PROJECT INFORMATION */
-
-.project-info{
-
-    color:white;
-
-}
-
-.project-info h2{
-
-    font-size:32px;
-
-    margin-bottom:20px;
-
-}
-
-.project-info p{
-
-    font-size:17px;
-
-    line-height:1.6;
-
-    margin-bottom:25px;
-
-}
-
-.project-info h4{
-
-    font-size:20px;
-
-    margin-bottom:10px;
-
-}
-
-.project-info ul{
-
-    padding-left:25px;
-
-}
-
-.project-info li{
-
-    margin-bottom:8px;
-
-    font-size:16px;
-
-}
-
-/* IMAGE SECTION */
-.project-image{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    flex-direction:column;
-
-    gap:15px;
-
-}
-
-.project-image img{
-
-    width:100%;
-
-    max-width:550px;
-
-    height:280px;
-
-    object-fit:contain;
-
-    border-radius:15px;
-
-    transition:0.3s;
-
-}
-
-.project-image img:hover{
-
-    transform:scale(1.05);
-
-}
-
-/* RESPONSIVE */
-
-@media(max-width:900px){
-
-    .project-card{
-
-        grid-template-columns:1fr;
-
+@media(max-width: 900px) {
+    .project-card {
+        grid-template-columns: 1fr; /* Stacks textual description above images on tablets/phones */
+        gap: 35px;
+        padding: 30px;
     }
-
-
-    .project-image img{
-
-        max-width:100%;
-
+    
+    .project-image {
+        max-height: none; /* No vertical scrolling limit needed when layout is a single column */
     }
-
 }
 
-/* CLICKABLE IMAGE */
-
-.project-image img{
-
-    cursor:pointer;
-
+@media(max-width: 850px) {
+    .project-card {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .project-info ul {
+        grid-template-columns: 1fr;
+    }
+    .member-name-display {
+        font-size: 22px;
+    }
 }
 
-
-/* IMAGE POPUP BACKGROUND */
-
-.image-modal{
-
-    position:fixed;
-
-    top:0;
-
-    left:0;
-
-    width:100vw;
-
-    height:100vh;
-
-    background:rgba(0,0,0,0.75);
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    z-index:9999;
-
+/* --- PREVIEW MODAL --- */
+.image-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(10, 11, 30, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(5px);
 }
 
-/* POPUP WINDOW */
-
-.image-modal-box{
-
-    position:relative;
-
-    background:#282962;
-
-    padding:25px;
-
-    border-radius:20px;
-
-    max-width:90vw;
-
-    max-height:90vh;
-
-    animation:imagePopup 0.3s ease;
-
+.image-modal-box {
+    position: relative;
+    max-width: 85vw;
+    max-height: 85vh;
+    animation: imagePopup 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.image-modal-box img{
-
-    max-width:80vw;
-
-    max-height:80vh;
-
-    object-fit:contain;
-
-    border-radius:15px;
-
+.image-modal-box img {
+    max-width: 100%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
 }
 
-/* CLOSE BUTTON */
-
-.close-image{
-
-    position:absolute;
-
-    top:-15px;
-
-    right:-15px;
-
-    width:40px;
-
-    height:40px;
-
-    border-radius:50%;
-
-    border:none;
-
-    background:white;
-
-    color:#282962;
-
-    font-size:25px;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
+.close-image {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: white;
+    color: #282962;
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease;
 }
 
-.close-image:hover{
+.close-image:hover { transform: scale(1.1); }
 
-    transform:scale(1.1);
-
-}
-
-/* POPUP ANIMATION */
-
-@keyframes imagePopup{
-
-from{
-
-    opacity:0;
-
-    transform:scale(0.7);
-
-}
-
-
-to{
-
-    opacity:1;
-
-    transform:scale(1);
-
-}
-
-
+@keyframes imagePopup {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
 }
