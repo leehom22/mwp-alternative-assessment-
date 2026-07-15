@@ -1,16 +1,12 @@
+/* --- BASE LAYOUT --- */
 .member-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 24px;
     margin-top: 40px;
-    transition: grid-template-columns 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    width: 100%;
+    box-sizing: border-box;
 }
-
-/* Expand Grid Column Logic */
-.member-grid.member-0 { grid-template-columns: 1.6fr 0.8fr 0.8fr 0.8fr; }
-.member-grid.member-1 { grid-template-columns: 0.8fr 1.6fr 0.8fr 0.8fr; }
-.member-grid.member-2 { grid-template-columns: 0.8fr 0.8fr 1.6fr 0.8fr; }
-.member-grid.member-3 { grid-template-columns: 0.8fr 0.8fr 0.8fr 1.6fr; }
 
 .member-card {
     background: #282962;
@@ -24,24 +20,13 @@
     text-align: center;
     overflow: hidden;
     transition: 
-        transform 0.4s ease,
+        transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
         opacity 0.4s ease,
         box-shadow 0.4s ease,
         background-color 0.4s ease;
 }
 
-/* --- Active & Inactive States --- */
-.member-card.active {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    background: #313375; /* Slight highlight color change */
-}
-
-.member-card.inactive {
-    opacity: 0.35;
-}
-
-/* --- Profile Image Scaling --- */
+/* --- ELEMENT TYPOGRAPHY & ASSETS --- */
 .member-image {
     width: 45%;
     aspect-ratio: 1 / 1;
@@ -51,60 +36,30 @@
     object-fit: cover;
     flex-shrink: 0;
     margin-bottom: 16px;
-    transition: transform 0.4s ease, opacity 0.4s ease;
+    transition: transform 0.4s ease;
 }
 
-.member-card.active .member-image {
-    transform: scale(1.08);
-}
-
-.member-card.inactive .member-image {
-    transform: scale(0.9);
-}
-
-/* --- Typography Adjustments (Dynamic Scaling) --- */
 .member-name {
-    font-size: 22px; /* Balanced base size */
+    font-size: 22px;
     font-weight: 600;
-    margin-bottom: 8px;
+    margin: 0 0 8px 0;
     line-height: 1.3;
     transition: font-size 0.4s ease;
-}
-
-.member-card.active .member-name {
-    font-size: 25px;
-}
-
-.member-card.inactive .member-name {
-    font-size: 16px; /* Shrinks to prevent ugly multi-line wrapping */
+    color: white;
 }
 
 .member-degree {
     font-size: 14px;
     color: #babcff;
     line-height: 1.4;
-    margin-bottom: 20px;
+    margin: 0 0 20px 0;
     transition: font-size 0.4s ease;
 }
 
-.member-card.inactive .member-degree {
-    font-size: 11px;
-}
-
-/* --- Smooth Collapsible Details Logic --- */
 .member-details {
     width: 100%;
-    max-height: 500px; /* Safe arbitrary value for open state */
     opacity: 1;
     transition: max-height 0.5s ease, opacity 0.4s ease, margin 0.4s ease;
-}
-
-/* Gracefully hide text blocks when a neighboring card is hovered */
-.member-card.inactive .member-details {
-    max-height: 0;
-    opacity: 0;
-    margin: 0;
-    pointer-events: none; /* Prevents cursor conflict if text stays invisibly interactive */
 }
 
 .member-description {
@@ -117,14 +72,107 @@
 .achievement-title {
     font-size: 15px;
     font-weight: 600;
-    margin-bottom: 8px;
-    color: #ffd700; /* Subtle accent to separate sections visually */
+    margin: 0 0 8px 0;
+    color: #ffd700;
 }
 
 .achievement-list {
     text-align: left;
     padding-left: 18px;
+    margin: 0;
     line-height: 1.6;
     font-size: 13px;
     color: #e2e4ff;
+}
+
+
+/* ==========================================================================
+   DESKTOP ONLY: DYNAMIC HOVER ACCORDION EFFECT (Screens wider than 1024px)
+   ========================================================================== */
+@media (min-width: 1025px) {
+    .member-grid {
+        transition: grid-template-columns 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    /* Expand Grid Column Logic */
+    .member-grid.member-0 { grid-template-columns: 1.6fr 0.8fr 0.8fr 0.8fr; }
+    .member-grid.member-1 { grid-template-columns: 0.8fr 1.6fr 0.8fr 0.8fr; }
+    .member-grid.member-2 { grid-template-columns: 0.8fr 0.8fr 1.6fr 0.8fr; }
+    .member-grid.member-3 { grid-template-columns: 0.8fr 0.8fr 0.8fr 1.6fr; }
+
+    /* Active State (Hovered) */
+    .member-card.active {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        background: #313375;
+    }
+
+    .member-card.active .member-image {
+        transform: scale(1.08);
+    }
+
+    .member-card.active .member-name {
+        font-size: 25px;
+    }
+
+    /* Inactive State (Shrinking other cards) */
+    .member-card.inactive {
+        opacity: 0.35;
+    }
+
+    .member-card.inactive .member-image {
+        transform: scale(0.9);
+    }
+
+    .member-card.inactive .member-name {
+        font-size: 16px;
+    }
+
+    .member-card.inactive .member-degree {
+        font-size: 11px;
+    }
+
+    /* Collapse details when inactive */
+    .member-card.inactive .member-details {
+        max-height: 0;
+        opacity: 0;
+        margin: 0;
+        pointer-events: none;
+    }
+}
+
+
+/* ==========================================================================
+   TABLET LAYOUT: 2 Columns, No Hover Collapsing (768px to 1024px)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .member-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .member-card {
+        min-height: auto; /* Allow natural scaling depending on text */
+        padding: 35px 25px;
+    }
+}
+
+
+/* ==========================================================================
+   MOBILE LAYOUT: Single Vertical Column (Below 768px)
+   ========================================================================== */
+@media (max-width: 767px) {
+    .member-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .member-card {
+        min-height: auto;
+        padding: 30px 20px;
+    }
+
+    .member-image {
+        width: 100px; /* Locked size on small viewports */
+    }
 }

@@ -1,38 +1,42 @@
+/* --- HERO SECTION CONTAINER --- */
 .hero {
     min-height: 100vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 100px;
+    padding: 120px 8% 80px 8%; /* Balanced dynamic percentage padding */
     gap: 60px;
     background: #0f172a;
     color: white;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Prevents horizontal scrollbars during initial page animation entry */
 }
 
-.hero{
-
+.hero {
     background:
-    radial-gradient(circle at top left,#4338CA55,transparent 35%),
-
-    radial-gradient(circle at bottom right,#06B6D455,transparent 30%),
-
-    var(--background);
-
+        radial-gradient(circle at top left, #4338ca55, transparent 35%),
+        radial-gradient(circle at bottom right, #06b6d455, transparent 30%),
+        var(--background);
 }
 
+/* --- COLUMN CONFIGURATIONS --- */
 .hero-left {
-    flex: 1;
+    flex: 1.2; /* Gives the copywriting a bit more breathing room */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .hero-right {
-    flex: 1;
+    flex: 0.8;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    height: 80vh;
+    height: 70vh; /* Scaled down slightly from 80vh for desktop proportion */
+    width: 100%;
 }
 
+/* --- TYPOGRAPHY & ELEMENTS --- */
 .group-name {
     color: #38bdf8;
     font-weight: 600;
@@ -42,22 +46,23 @@
 }
 
 .hero h1 {
-    font-size: 4rem;
+    font-size: clamp(2.5rem, 5vw, 4rem); /* Dynamically scales fluidly between mobile and desktop */
     line-height: 1.1;
     margin-bottom: 20px;
+    font-weight: 800;
 }
 
 .hero h2 {
-    font-size: 1.4rem;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
     color: #cbd5e1;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     font-weight: 500;
 }
 
 .tagline {
     color: #60a5fa;
-    font-size: 1.2rem;
-    margin-bottom: 30px;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    margin-bottom: 24px;
     font-weight: 600;
 }
 
@@ -66,6 +71,7 @@
     color: #d1d5db;
     line-height: 1.8;
     margin-bottom: 40px;
+    font-size: 0.98rem;
 }
 
 .explore-btn {
@@ -75,13 +81,18 @@
     border: none;
     border-radius: 12px;
     font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: 0.3s;
+    transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .explore-btn:hover {
     transform: translateY(-3px);
     background: #2563eb;
+}
+
+.explore-btn:active {
+    transform: translateY(-1px);
 }
 
 .scene-placeholder {
@@ -90,24 +101,56 @@
     animation: float 4s ease-in-out infinite;
 }
 
-@keyframes float{
-
-0%{
-
-transform:translateY(0);
-
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
 }
 
-50%{
 
-transform:translateY(-15px);
+/* ==========================================================================
+   TABLET LAYOUT: 1024px and below
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .hero {
+        padding: 100px 5% 60px 5%;
+        gap: 40px;
+    }
 
+    .hero-right {
+        height: 50vh; /* Shrinks the eyeball vertical footprint */
+    }
 }
 
-100%{
 
-transform:translateY(0);
+/* ==========================================================================
+   MOBILE & PORTRAIT LAYOUT: 768px and below
+   ========================================================================== */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column; /* Stack vertically */
+        justify-content: center;
+        text-align: center; /* Center text alignment for cleaner mobile framing */
+        padding: 120px 24px 60px 24px;
+        gap: 30px;
+        min-height: auto;
+    }
 
-}
+    .hero-left {
+        align-items: center; /* Center-align contents inside the block */
+    }
 
+    .hero-right {
+        order: -1; /* Swaps order: puts 3D eyeball visual on top of mobile layouts! */
+        height: 320px; /* Lock standard static height for clean canvas rendering */
+    }
+
+    .description {
+        margin-bottom: 30px;
+    }
+
+    .explore-btn {
+        width: 100%;
+        max-width: 280px; /* Tap-friendly thumb size */
+    }
 }
