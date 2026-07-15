@@ -1,0 +1,345 @@
+.project-wrapper{
+
+    width:100%;
+
+}
+
+
+/* MEMBER AND PROJECT NAVIGATION */
+
+.member-switch,
+.project-switch{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:25px;
+
+    margin:15px;
+
+}
+
+
+
+.member-switch h2,
+.project-switch h3{
+
+    color:white;
+
+    margin:0;
+
+}
+
+
+
+
+
+/* WHITE CIRCLE BUTTON */
+
+.member-switch button,
+.project-switch button{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    border:none;
+
+    background:white;
+
+    color:#282962;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    transition:0.3s;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,0.25);
+
+}
+
+
+
+.member-switch button:hover,
+.project-switch button:hover{
+
+    transform:scale(1.15);
+
+    background:#e6e6ff;
+
+}
+
+
+
+
+
+
+
+/* PROJECT CARD */
+
+.project-card{
+
+    display:grid;
+
+    grid-template-columns:0.75fr 1fr;
+
+    gap:40px;
+
+    background:#282962;
+
+    border-radius:20px;
+
+    padding:40px;
+
+    min-height:350px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.2);
+
+}
+
+/* PROJECT INFORMATION */
+
+.project-info{
+
+    color:white;
+
+}
+
+.project-info h2{
+
+    font-size:32px;
+
+    margin-bottom:20px;
+
+}
+
+.project-info p{
+
+    font-size:17px;
+
+    line-height:1.6;
+
+    margin-bottom:25px;
+
+}
+
+.project-info h4{
+
+    font-size:20px;
+
+    margin-bottom:10px;
+
+}
+
+.project-info ul{
+
+    padding-left:25px;
+
+}
+
+.project-info li{
+
+    margin-bottom:8px;
+
+    font-size:16px;
+
+}
+
+/* IMAGE SECTION */
+.project-image{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+.project-image img{
+
+    width:100%;
+
+    max-width:550px;
+
+    height:280px;
+
+    object-fit:contain;
+
+    border-radius:15px;
+
+    transition:0.3s;
+
+}
+
+.project-image img:hover{
+
+    transform:scale(1.05);
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    .project-card{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .project-image img{
+
+        max-width:100%;
+
+    }
+
+}
+
+/* CLICKABLE IMAGE */
+
+.project-image img{
+
+    cursor:pointer;
+
+}
+
+
+/* IMAGE POPUP BACKGROUND */
+
+.image-modal{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100vw;
+
+    height:100vh;
+
+    background:rgba(0,0,0,0.75);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+
+}
+
+/* POPUP WINDOW */
+
+.image-modal-box{
+
+    position:relative;
+
+    background:#282962;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    max-width:90vw;
+
+    max-height:90vh;
+
+    animation:imagePopup 0.3s ease;
+
+}
+
+.image-modal-box img{
+
+    max-width:80vw;
+
+    max-height:80vh;
+
+    object-fit:contain;
+
+    border-radius:15px;
+
+}
+
+/* CLOSE BUTTON */
+
+.close-image{
+
+    position:absolute;
+
+    top:-15px;
+
+    right:-15px;
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:50%;
+
+    border:none;
+
+    background:white;
+
+    color:#282962;
+
+    font-size:25px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+.close-image:hover{
+
+    transform:scale(1.1);
+
+}
+
+/* POPUP ANIMATION */
+
+@keyframes imagePopup{
+
+from{
+
+    opacity:0;
+
+    transform:scale(0.7);
+
+}
+
+
+to{
+
+    opacity:1;
+
+    transform:scale(1);
+
+}
+
+
+}

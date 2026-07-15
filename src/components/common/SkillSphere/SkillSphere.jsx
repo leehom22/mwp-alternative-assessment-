@@ -15,7 +15,7 @@ function SkillSphere({
         "Darshni": {
             type: "metal",
             color: "#8b07ff",
-            emissive: "#3d1a74"
+            emissive: "#61488a"
         },
 
         "Nicholas Yek Ei Zhe": {

@@ -74,7 +74,7 @@ function AboutSection() {
 
         ],
 
-        image:"/images/member3.jpg"
+        image:"/images/Nicholas.jpeg"
     },
 
 
