@@ -25,11 +25,10 @@ function AboutSection() {
 
             "Kitahack  2026 - 2nd Runner Up",
 
-            "Kitahack 2025 - Participant",
+            "UM Hackathon 2026 - Participant",
 
             "VHack 2026  - Participant",
 
-            "UM Hackathon 2026 - Participant"
 
         ],
 

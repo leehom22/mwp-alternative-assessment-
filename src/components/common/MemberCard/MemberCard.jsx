@@ -23,14 +23,9 @@ function MemberCard({
     return (
         <div
             className={className}
-            onMouseEnter={() => {
-                setHoveredMember(index);
-            }}
-            onMouseLeave={() => {
-                setHoveredMember(null);
-            }}
+            onMouseEnter={() => setHoveredMember(index)}
+            onMouseLeave={() => setHoveredMember(null)}
         >
-
             <img
                 src={image}
                 alt={name}
@@ -45,30 +40,25 @@ function MemberCard({
                 {degree}
             </h4>
 
-            <p className="member-description">
-                {description}
-            </p>
+            {/* Optimized Container for Smooth Collapsing */}
+            <div className="member-details">
+                <p className="member-description">
+                    {description}
+                </p>
 
-            {
-                achievements && achievements.length > 0 && (
-                    <>
+                {achievements && achievements.length > 0 && (
+                    <div className="member-achievements">
                         <h4 className="achievement-title">
                             Personal Achievement
                         </h4>
-
                         <ul className="achievement-list">
-                            {
-                                achievements.map((item, index) => (
-                                    <li key={index}>
-                                        {item}
-                                    </li>
-                                ))
-                            }
+                            {achievements.map((item, idx) => (
+                                <li key={idx}>{item}</li>
+                            ))}
                         </ul>
-                    </>
-                )
-            }
-
+                    </div>
+                )}
+            </div>
         </div>
     );
 }
