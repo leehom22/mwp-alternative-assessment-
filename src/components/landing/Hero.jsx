@@ -1,6 +1,6 @@
 import "./Hero.css";
 import { motion } from "framer-motion";
-import TDobject from "./TDobject";
+import Eyeball from "./Eyeball";
 
 function Hero() {
     return (
@@ -56,7 +56,7 @@ function Hero() {
 
                 <div className="scene-placeholder">
 
-                    <TDobject/>
+                    <Eyeball/>
 
                 </div>
 
