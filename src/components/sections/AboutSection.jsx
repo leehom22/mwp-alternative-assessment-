@@ -37,7 +37,7 @@ function AboutSection() {
 
 
     {
-        name:"Uthaya Darshini A/P Prakash",
+        name:"Uthaya Darshni A/P Prakash",
 
         degree:
         "Bachelor in Computer Science in Graphic and Multimedia",

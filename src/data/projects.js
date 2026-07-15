@@ -78,7 +78,7 @@ export const members = [
 
 
     {
-        name:"Uthaya Darshini A/P Prakash",
+        name:"Uthaya Darshni A/P Prakash",
 
         projects:[
 
