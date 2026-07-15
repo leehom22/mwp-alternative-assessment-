@@ -2,7 +2,6 @@ import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Float, Text, Edges, Line } from "@react-three/drei";
 
-// Add a `model` field per member: "unity" | "react" | "gcp" | "opengl"
 const MEMBER_CONFIG = {
     "Ling Lee Hom": {
         model: "opengl",
@@ -30,7 +29,6 @@ const MEMBER_CONFIG = {
     }
 };
 
-// Shared material — same logic as the original sphere, reused across all models
 function SkillMaterial({ config, active }) {
     if (config.type === "metal") {
         return (
@@ -75,7 +73,7 @@ function UnityModel({ config, active }) {
                 <SkillMaterial config={config} active={active} />
                 <Edges color="white" />
             </mesh>
-            {/* accent nodes at each vertex, echoing the wireframe-cube reference */}
+
             {corners.map((pos, i) => (
                 <mesh key={i} position={pos}>
                     <sphereGeometry args={[0.035, 12, 12]} />
@@ -108,13 +106,11 @@ function ReactModel({ config, active }) {
 
     return (
         <group ref={groupRef}>
-            {/* nucleus */}
             <mesh>
                 <sphereGeometry args={[0.15, 32, 32]} />
                 <SkillMaterial config={config} active={active} />
             </mesh>
 
-            {/* three elliptical orbit rings, tilted like the React logo */}
             {ringRotations.map((rot, i) => (
                 <group key={i} rotation={[Math.PI / 2.6, 0, rot]}>
                     <mesh scale={[1, 0.42, 1]}>
@@ -160,14 +156,12 @@ function GcpModel({ config, active }) {
 
     return (
         <group ref={groupRef}>
-            {/* central hub */}
             <mesh>
                 <octahedronGeometry args={[0.2, 0]} />
                 <SkillMaterial config={config} active={active} />
                 <Edges color="white" />
             </mesh>
 
-            {/* peripheral nodes + connecting struts, echoing the pipeline diagram */}
             {nodes.map((pos, i) => (
                 <group key={i}>
                     <Line
@@ -267,7 +261,6 @@ function SkillSphere({ member, active }) {
 
             </Float>
 
-            {/* MEMBER NAME */}
             <Text
                 position={[0, -2, 0]}
                 rotation={[-Math.PI / 10, 0, 0]}
