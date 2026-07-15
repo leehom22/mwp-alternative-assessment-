@@ -1,5 +1,3 @@
-import "./SectionTitle.css";
-
 function SectionTitle({
     subtitle,
     title

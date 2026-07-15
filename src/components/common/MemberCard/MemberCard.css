@@ -99,12 +99,11 @@
     transition: max-height 0.5s ease, opacity 0.4s ease, margin 0.4s ease;
 }
 
-/* Gracefully hide text blocks when a neighboring card is hovered */
 .member-card.inactive .member-details {
     max-height: 0;
     opacity: 0;
     margin: 0;
-    pointer-events: none; /* Prevents cursor conflict if text stays invisibly interactive */
+    pointer-events: none; 
 }
 
 .member-description {

@@ -1,0 +1,40 @@
+.footer {
+    background: #0f172a;
+    color: #f8fafc;
+    padding: 60px 20px 30px;
+    margin-top: 80px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-logo {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.footer-description {
+    max-width: 550px;
+    margin: 0 auto;
+    color: #94a3b8;
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+
+.footer-divider {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #6366f1, #8b5cf6);
+    margin: 30px auto;
+    border-radius: 10px;
+}
+
+.footer-copyright {
+    color: #64748b;
+    font-size: 0.9rem;
+}

@@ -137,17 +137,14 @@ function ProjectCard({
                             )
                         }
                     </ul>
-
                 </div>
 
 
                 {/* IMAGE */}
                 <div className="project-image">
-
                     {
                         project.images.map(
                             (img, index) => (
-
                                 <img
                                     key={index}
                                     src={img}
@@ -157,7 +154,6 @@ function ProjectCard({
                                         setSelectedImage(img);
                                     }}
                                 />
-
                             )
                         )
                     }
@@ -171,10 +167,8 @@ function ProjectCard({
             {/* IMAGE POPUP */}
             {
                 selectedImage && (
-
                     <div
                         className="image-modal"
-
                         onClick={() => {
                             setSelectedImage(null);
                         }}
@@ -182,7 +176,6 @@ function ProjectCard({
 
                         <div
                             className="image-modal-box"
-
                             onClick={(e) => {
                                 e.stopPropagation();
                             }}
@@ -190,7 +183,6 @@ function ProjectCard({
 
                             <button
                                 className="close-image"
-
                                 onClick={() => {
                                     setSelectedImage(null);
                                 }}
@@ -198,14 +190,11 @@ function ProjectCard({
                                 ×
                             </button>
 
-
                             <img
                                 src={selectedImage}
                                 alt="Large Preview"
                             />
-
                         </div>
-
                     </div>
 
                 )
