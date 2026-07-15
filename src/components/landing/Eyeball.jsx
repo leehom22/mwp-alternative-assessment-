@@ -11,10 +11,6 @@ const MAX_PITCH = 0.35;
 
 const TRACKING_SPEED = 6;
 
-/* ------------------------------------------------------------------ */
-/*  Error boundary — useGLTF's loader throws on failed fetch/parse,   */
-/*  and Suspense alone won't catch that, only the pending state.      */
-/* ------------------------------------------------------------------ */
 class ModelErrorBoundary extends React.Component {
     constructor(props) {
         super(props);
@@ -37,9 +33,7 @@ class ModelErrorBoundary extends React.Component {
     }
 }
 
-/* ------------------------------------------------------------------ */
 /*  Placeholder shown while the GLB is loading or if it fails to load */
-/* ------------------------------------------------------------------ */
 function EyeballPlaceholder({ tone = "#888888" }) {
     return (
         <mesh>
@@ -49,15 +43,12 @@ function EyeballPlaceholder({ tone = "#888888" }) {
     );
 }
 
-/* ------------------------------------------------------------------ */
 /*  The actual eyeball model, with mouse-following rotation           */
-/* ------------------------------------------------------------------ */
 function EyeballModel({ onLoaded }) {
     const groupRef = useRef();
     const { scene } = useGLTF(EYEBALL_MODEL_PATH);
 
     // Enable shadow casting on the loaded meshes, once, on mount.
-    // Guarded with a ref so it only runs the first time this model mounts.
     const didInit = useRef(false);
     if (!didInit.current) {
         scene.traverse((child) => {
@@ -70,16 +61,12 @@ function EyeballModel({ onLoaded }) {
         onLoaded?.();
     }
 
-    // r3f exposes normalized pointer coords (-1 to 1, relative to the
-    // canvas) on every pointer move without any manual window listeners,
-    // so we just read state.pointer inside the render loop — cheap and
-    // avoids re-render churn from React state.
     useFrame((state, delta) => {
         if (!groupRef.current) return;
 
         const { pointer } = state;
         const targetYaw = pointer.x * MAX_YAW;
-        const targetPitch = -pointer.y * MAX_PITCH; // inverted so mouse-up = gaze-up
+        const targetPitch = -pointer.y * MAX_PITCH;
 
         // Frame-rate independent easing toward the target rotation
         const t = 1 - Math.pow(0.001, delta * TRACKING_SPEED);
@@ -94,9 +81,7 @@ function EyeballModel({ onLoaded }) {
     );
 }
 
-/* ------------------------------------------------------------------ */
 /*  Scene lighting — key + fill + rim, plus soft ambient fill light   */
-/* ------------------------------------------------------------------ */
 function EyeballLighting() {
     return (
         <>
@@ -118,18 +103,14 @@ function EyeballLighting() {
                 shadow-camera-bottom={-2}
             />
 
-            {/* Rim light — cool-toned accent from behind, for a bit of separation */}
             <pointLight position={[-3, 2, -4]} intensity={0.6} color="#8ab4ff" />
 
-            {/* Subtle catch-light so the iris/cornea has a specular highlight */}
             <pointLight position={[0, 1, 3]} intensity={0.4} color="#ffffff" />
         </>
     );
 }
 
-/* ------------------------------------------------------------------ */
-/*  Public component                                                  */
-/* ------------------------------------------------------------------ */
+
 export default function Eyeball({ className, style }) {
     const [isReady, setIsReady] = useState(false);
 
