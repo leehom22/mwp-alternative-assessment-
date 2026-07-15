@@ -4,14 +4,11 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Environment, useGLTF } from "@react-three/drei";
 
 
-// Swap this for your actual asset path, e.g. "/models/eyeball.glb"
 const EYEBALL_MODEL_PATH = "./robot_eyes_low_poly_4k_texture.glb";
 
-// How far the eye is allowed to rotate on each axis (radians)
 const MAX_YAW = 0.5;
 const MAX_PITCH = 0.35;
 
-// How quickly the eye eases toward the target rotation (higher = snappier)
 const TRACKING_SPEED = 6;
 
 /* ------------------------------------------------------------------ */
